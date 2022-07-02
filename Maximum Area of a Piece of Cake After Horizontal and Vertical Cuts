@@ -1,0 +1,26 @@
+class Solution:
+    def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
+        # step 1 sort the two arrays
+        hori = horizontalCuts
+        vert = verticalCuts
+        
+        hori.sort()
+        vert.sort()
+        hori.append(h)
+        vert.append(w)
+        # step 2 find the largest width
+        maxwidth = 0
+        for i in range(len(vert)):
+            if i == 0:
+                maxwidth = max(maxwidth, vert[i])
+            else:
+                maxwidth = max(maxwidth, vert[i] - vert[i-1])
+        # step 3 find the largest height
+        maxheight = 0
+        for i in range(len(hori)):
+            if i == 0:
+                maxheight = max(maxheight, hori[i])
+            else:
+                maxheight = max(maxheight, hori[i] - hori[i-1])
+        area = maxwidth * maxheight
+        return area % (10**9 + 7)
