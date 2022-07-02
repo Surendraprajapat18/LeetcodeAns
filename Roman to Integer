@@ -4,7 +4,7 @@ class Solution:
         i = 0
         num = 0
         #while is running o to length of given roman number
-        while i < len(s):
+        while i < len(s): 
             if i+1<len(s) and s[i:i+2] in roman:
                 num+=roman[s[i:i+2]]
                 i+=2
