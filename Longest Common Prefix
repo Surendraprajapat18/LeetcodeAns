@@ -1,0 +1,15 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        m = min(strs, key=lambda x: len(x))
+        mini = math.inf
+        
+        for i in strs:
+            s = 0
+            for j in range(len(m)):
+                if m[j] != i[j]:
+                    break
+                s += 1
+            #here minimum value of s and mini and mini is a infinite v
+            mini = min(s,mini)
+        
+        return m[:mini]
