@@ -1,2 +1,2 @@
-# LeetcodeAns
+LeetcodeAns
 Understood code only
